@@ -15,6 +15,6 @@
 python3 "$root/../../packages/runtime-shims/install.py" "$public"
 ```
 
-它把所有兜底合成 `public/acde-compat.js`，并给每个 HTML 的 `<head>` 加上 `<script src="/acde-compat.js">`，同时删掉 `<noscript>`（运行时会把它当可见内容渲染）。需要应用声明 `"entry": "/"` 并由后台托管 `public/`。
+它把所有兜底合成 `public/acde-compat.js`，并给每个 HTML 的 `<head>` 加上 `<script src="/acde-compat.js">`，同时删掉 `<noscript>`（运行时会把它当可见内容渲染）。默认用根路径，适合声明 `"entry": "/"`、由后台托管 `public/` 的应用；页面作为应用包文件直接加载时，acdev 不接受根路径引用，第二个参数传 `./` 改用相对路径。
 
 缺口细节见总仓 `.scratch/community/runtime-gaps.md`。
