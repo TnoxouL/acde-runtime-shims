@@ -9,12 +9,14 @@
 
 ## 用法
 
-应用的构建脚本在整理出 `public/` 之后执行：
+以 git 子模块放进应用仓库，构建脚本在整理出 `public/` 之后执行：
 
 ```bash
-python3 "$root/../../packages/runtime-shims/install.py" "$public"
+python3 <runtime-shims 目录>/install.py "$public"
 ```
 
 它把所有兜底合成 `public/acde-compat.js`，并给每个 HTML 的 `<head>` 加上 `<script src="/acde-compat.js">`，同时删掉 `<noscript>`（运行时会把它当可见内容渲染）。默认用根路径，适合声明 `"entry": "/"`、由后台托管 `public/` 的应用；页面作为应用包文件直接加载时，acdev 不接受根路径引用，第二个参数传 `./` 改用相对路径。
 
-缺口细节见总仓 `.scratch/community/runtime-gaps.md`。
+## 许可证
+
+MIT，见 `LICENSE`。
